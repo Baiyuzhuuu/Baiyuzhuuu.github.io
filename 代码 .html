@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的偶像 刘亦菲 - 合集版</title>
+    <style>
+        /* 全局统一样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #fae6ea; 
+            color: #0e0f0e; 
+        }
+        /* 导航栏 */
+        nav {
+            background-color: #98c0f7; 
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px; 
+            flex-wrap: wrap; 
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        /* 内容容器 */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        /* 标题样式 */
+        h1 {
+            color: #073ab1;
+            font-size: 40px;
+            font-family:'Noto Serif SC',serif;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        /* 首页卡片组 */
+        .card-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .card {
+            background-color: #f4f3f7; 
+            color: #281e87; 
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .card:nth-child(2n) {
+            background-color: #f4f3f7; 
+            color: #281e87; 
+        }
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        /* 内容区通用样式 */
+        .content {
+            background-color: rgb(239, 242, 246);
+            padding: 30px;
+            border-radius: 8px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .content h2 {
+            color: #6965e3;
+            font-size: 22px;
+            margin: 35px 0 15px;
+            border-bottom: 2px solid #f0f7f2;
+            padding-bottom: 10px;
+        }
+        /* 图片神颜页 */
+        .appearance-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 6px;
+            margin: 15px 0;
+            display: block;
+        }
+        /* 作品页项目样式 */
+        .work-item {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f9fcfb;
+            border-radius: 6px;
+        }
+        .work-item h3 {
+            color: #98c0f7;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        /* 奖项页卡片组 */
+        .award-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .award-card {
+            background-color: #f9fcfb;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .award-card h2 {
+            color: #4f2b92;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .award-item {
+            margin: 12px 0;
+            padding-left: 15px;
+            border-left: 3px solid #7c44a1;
+        }
+        /* 页脚 */
+        footer {
+            background-color: #7badf3;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+        
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .card-group, .award-group {
+                grid-template-columns: 1fr; 
+            }
+            .nav-container {
+                gap: 15px;
+            }
+            nav a {
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#index" class="nav-link" data-page="index">首页</a>
+            <a href="#connotation" class="nav-link" data-page="connotation">她的内涵</a>
+            <a href="#appearance" class="nav-link" data-page="appearance">她的神颜</a>
+            <a href="#works" class="nav-link" data-page="works">她的作品</a>
+            <a href="#awards" class="nav-link" data-page="awards">她获得的奖项</a>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <div id="index" class="page active">
+        <div class="container">
+            <h1>-我的偶像 刘亦菲-</h1>
+            <div class="card-group">
+                <div class="card" onclick="switchPage('connotation')">
+                    <h2>她的内涵</h2>
+                    <p>已识乾坤大，犹怜草木请</p>
+                </div>
+                <div class="card" onclick="switchPage('appearance')">
+                    <h2>她的神颜</h2>
+                    <p>美貌是刘亦菲最大的天赋</p>
+                </div>
+                <div class="card" onclick="switchPage('works')">
+                    <h2>她的作品</h2>
+                    <p>从经典仙侠剧到现代都市剧，人们总是因为她的美貌而忽略她的演技，而作品总是记录着她演技的突破</p>
+                </div>
+                <div class="card" onclick="switchPage('awards')">
+                    <h2>她获得的奖项</h2>
+                    <p>凭借实力与影响力，斩获国内外多项大奖，实至名归的实力派演员</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 她的内涵 -->
+    <div id="connotation" class="page">
+        <div class="container">
+            <h1>-她的内涵-</h1>
+            <div class="content">
+                <p>刘亦菲的魅力，不仅在于外在的惊艳，更在于内在的丰盈与通透。她用多年的言行，展现了难得的人格魅力：</p>
+                
+                <h2>温柔善良，心系公益</h2>
+                <p>她始终保持着对世界的温柔，积极参与公益事业，担任联合国儿童基金会大使，关注儿童教育与福利。对待粉丝亲切有礼，对待工作人员尊重包容，用细节传递善意。</p>
+                
+                <h2>坚韧不拔，不畏挑战</h2>
+                <p>拍摄《花木兰》时，她接受了长达数月的高强度训练，武术、马术、体能全面突破，即使受伤也坚持完成拍摄；面对舆论压力和职业瓶颈，她从不抱怨，而是以作品回应，展现了强大的内心韧性。</p>
+                
+                <h2>谦逊低调，专注本业</h2>
+                <p>她曾说："演员的本职是演戏，作品才是最好的名片"。</p>
+                
+                <h2>独立通透，热爱生活</h2>
+                <p>她有着独立的思想和清晰的自我认知，不随波逐流，坚持做自己认为正确的事。“每个人都做自己就好。”</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 她的神颜 -->
+    <div id="appearance" class="page">
+        <div class="container">
+            <h1>-她的神颜-</h1>
+            <div class="content">
+                <p>刘亦菲的美不是单一的惊艳，而是兼具清新、灵动与大气。</p>
+                
+                <h2>清新脱俗的独特气质</h2>
+                <img src="image/刘亦菲清新脱俗.png" alt="刘亦菲清新气质写真" class="appearance-img">
+                <p>她的气质纯净而通透，如同不食人间烟火的仙子。她的气质无关妆容与造型，是由内而外散发的通透与平和。</p>
+                
+                <h2>精致协调的五官比例</h2>
+                <img src="image/刘亦菲五官突出.png" alt="刘亦菲五官特写" class="appearance-img">
+                <p>她的五官精致却不张扬：柳叶眉纤细自然，杏核眼眼尾微微上挑，驼峰鼻增加了面部立体感，唇形优美，面部轮廓柔和流畅，线条饱满却不臃肿。</p>
+                
+                <h2>风格多变的颜值适配性</h2>
+                <img src="image/刘亦菲风格多变.png" alt="刘亦菲多变风格造型" class="appearance-img">
+                <p>她既能驾驭《仙剑奇侠传》中赵灵儿的清纯可人，也能演绎《神雕侠侣》中小龙女的清冷孤傲；既能在《花木兰》中展现英气飒爽，也能在时尚活动中呈现优雅大气。始终保持着独特的辨识度。</p>
+                
+                <h2>岁月沉淀的从容之美</h2>
+                <img src="image/刘亦菲岁月不败.png" alt="刘亦菲成熟从容气质" class="appearance-img">
+                <p>随着年龄增长，刘亦菲的颜值没有褪色，反而多了几分从容与优雅。褪去了少女的青涩，增添了成熟女性的韵味。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 她的作品-->
+    <div id="works" class="page">
+        <div class="container">
+            <h1>-她的作品-</h1>
+            <div class="content">
+                <p>刘亦菲的演艺生涯，是一部不断突破的成长史。从经典仙侠剧到现代都市剧、国际大片，她塑造了多个深入人心的角色，演技持续精进，戏路愈发宽广。</p>
+                
+                <h2>电视剧作品</h2>
+                <div class="work-item">
+                    <h3>《仙剑奇侠传》（2005）</h3>
+                    <p>饰演：赵灵儿 | 经典仙侠剧的开山之作，刘亦菲饰演的赵灵儿清纯灵动、天真善良，成为无数观众心中的白月光，也让"神仙姐姐"的称号深入人心。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《天龙八部》（2003）</h3>
+                    <p>饰演：王语嫣 | 完美诠释了原著中"绝世美女"的形象，容貌绝美、气质温婉，将王语嫣的聪慧与痴情演绎得淋漓尽致。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《神雕侠侣》（2006）</h3>
+                    <p>饰演：小龙女 | 清冷孤傲、不食人间烟火的形象深入人心，被认为是最贴合原著的小龙女版本之一，成为仙侠剧的经典标杆。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《梦华录》（2022）</h3>
+                    <p>饰演：赵盼儿 | 古装女性励志剧，刘亦菲时隔多年重返古装赛道，饰演坚韧聪慧、重情重义的茶坊老板娘赵盼儿。她将角色的独立清醒与温柔果敢完美融合，该剧引发全网热议，再次印证了她的古装剧号召力。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《去有风的地方》（2023）</h3>
+                    <p>饰演：许红豆 | 田园治愈系现代剧，刘亦菲饰演的许红豆在经历人生低谷后，前往大理乡村寻找自我。她以自然细腻的演技，展现了角色从迷茫到释怀的心境转变，剧中松弛治愈的氛围深受观众喜爱，成为年度爆款剧。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《玫瑰的故事》（2024）</h3>
+                    <p>饰演：黄亦玫 | 都市女性成长剧，刘亦菲饰演的黄亦玫从青涩少女成长为独立自信的职场女性。她精准把握了角色不同人生阶段的状态变化，将现代都市女性的清醒、坚韧与感性演绎得层次分明，展现了极强的现代剧驾驭能力。</p>
+                </div>
+                
+                <h2>电影作品</h2>
+                <div class="work-item">
+                    <h3>《花木兰》（2020）</h3>
+                    <p>饰演：花木兰 | 迪士尼真人版国际大片，刘亦菲突破以往形象，演绎了勇敢坚韧、忠孝两全的花木兰，凭借该片走向全球舞台，展现了出色的武打功底和演技。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《功夫之王》（2008）</h3>
+                    <p>饰演：金燕子 | 中美合拍电影，与成龙、李连杰等国际巨星合作，饰演冷艳执着的金燕子，展现了扎实的武打基础和国际化的表演风格。</p>
+                </div>
+                <div class="work-item">
+                    <h3>《倩女幽魂》（2011）</h3>
+                    <p>饰演：聂小倩 | 重新诠释经典角色，既有鬼魅的妖娆，又有人性的纯真，赋予了聂小倩全新的生命力。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 她获得的奖项 -->
+    <div id="awards" class="page">
+        <div class="container">
+            <h1>-她获得的奖项-</h1>
+            <div class="content">
+                <p>多年的努力与沉淀，让刘亦菲收获了业界与观众的双重认可！</p>
+                
+                <div class="award-group">
+                    <!-- 国内奖项 -->
+                    <div class="award-card">
+                        <h2>国内奖项</h2>
+                        <div class="award-item">
+                            <strong>华鼎奖</strong>：最佳女主角奖、观众最喜爱女演员奖
+                        </div>
+                        <div class="award-item">
+                            <strong>国剧盛典</strong>：年度人气女演员奖、年度演技突破女演员奖
+                        </div>
+                        <div class="award-item">
+                            <strong>北京大学生电影节</strong>：最受大学生喜爱女演员奖
+                        </div>
+                        <div class="award-item">
+                            <strong>华语电影传媒大奖</strong>：最受瞩目女演员奖
+                        </div>
+                        <div class="award-item">
+                            <strong>中国电视金鹰奖</strong>：观众喜爱的女演员提名
+                        </div>
+                        <div class="award-item">
+                            <strong>微博之夜</strong>：年度品质演员奖、年度热度人物奖
+                        </div>
+                    </div>
+
+                    <!-- 国际奖项 -->
+                    <div class="award-card">
+                        <h2>国际奖项</h2>
+                        <div class="award-item">
+                            <strong>MTV电影电视奖</strong>：最佳英雄形象奖（《花木兰》）
+                        </div>
+                        <div class="award-item">
+                            <strong>亚洲电影大奖</strong>：亚洲之星奖、最佳女主角提名
+                        </div>
+                        <div class="award-item">
+                            <strong>好莱坞电影奖</strong>：新一代好莱坞女演员奖
+                        </div>
+                        <div class="award-item">
+                            <strong>华表奖</strong>：优秀境外华裔女演员奖
+                        </div>
+                        <div class="award-item">
+                            <strong>全球最美面孔评选</strong>：多次入选TOP10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚-->
+    <footer>
+        <p>© 2025 “亦家人”网页 | </p>
+    </footer>
+
+    <!-- 切换页面的JavaScript -->
+    <script>
+        // 切换页面函数
+        function switchPage(pageId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // 显示目标页面
+            document.getElementById(pageId).classList.add('active');
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 给导航链接绑定点击事件
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                const pageId = this.getAttribute('data-page');
+                switchPage(pageId);
+            });
+        });
+    </script>
+</body>
+</html>
